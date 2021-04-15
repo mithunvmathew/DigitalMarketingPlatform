@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: cloud-discovery
+  cloud:
+    config:
+      uri: http://localhost:8888
+
+management:
+  context-path: /admin
+
+eureka:
+  instance:
+    hostname: localhost
+    statusPageUrlPath: ${management.context-path}/info
+    healthCheckUrlPath: ${management.context-path}/health
+    metadataMap:
+      instanceId: ${spring.application.name}
+      management:
+        context-path: ${management.context.path}
+  client:
+    healthcheck:
+      enabled: true
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
