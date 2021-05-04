@@ -1,2 +1,6 @@
 server:
   port: ${port:8083}
+
+keycloak:
+  credentials:
+    secret: 1c79bd5c-15a4-4d57-bac2-cd99b72cec65
